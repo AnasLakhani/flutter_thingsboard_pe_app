@@ -102,7 +102,7 @@ class _MainDashboardPageState extends TbContextState<MainDashboardPage>
           shadowColor: Colors.transparent,
           title: ValueListenableBuilder<String>(
             valueListenable: dashboardTitleValue,
-            builder: (context, title, widget) {
+            builder: (context, title, widget)  {
               return FittedBox(
                   fit: BoxFit.fitWidth,
                   alignment: Alignment.centerLeft,

@@ -135,8 +135,8 @@ class _DashboardState extends TbContextState<Dashboard> {
   void _onAuthenticated() async {
     if (tbContext.isAuthenticated) {
       if (!readyState.value) {
-        _initialUrl = Uri.parse(ThingsboardAppConstants.thingsBoardApiEndpoint +
-            '?accessToken=${tbClient.getJwtToken()!}&refreshToken=${tbClient.getRefreshToken()!}');
+        _initialUrl = Uri.parse(
+            'https://thingsboard.cloud/dashboard/60e11cd0-84ca-11ee-b952-7d878148e30b');
         readyState.value = true;
       } else {
         var windowMessage = <String, dynamic>{
