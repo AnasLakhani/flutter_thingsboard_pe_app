@@ -9,6 +9,7 @@ import 'package:thingsboard_app/core/context/tb_context.dart';
 import 'package:thingsboard_app/core/context/tb_context_widget.dart';
 import 'package:thingsboard_app/widgets/tb_progress_indicator.dart';
 import 'package:thingsboard_app/widgets/two_value_listenable_builder.dart';
+import 'package:thingsboard_pe_client/thingsboard_client.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -386,6 +387,13 @@ class _DashboardState extends TbContextState<Dashboard> {
                           onUpdateVisitedHistory:
                               (controller, url, androidIsReload) async {
                             log.debug('onUpdateVisitedHistory: $url');
+                            if (url.toString() ==
+                                'https://thingsboard.cloud/login') {
+                              tbClient.logout(
+                                  requestConfig:
+                                      RequestConfig(ignoreErrors: true));
+                              return;
+                            }
                             _dashboardController
                                 .onHistoryUpdated(controller.canGoBack());
                           },
